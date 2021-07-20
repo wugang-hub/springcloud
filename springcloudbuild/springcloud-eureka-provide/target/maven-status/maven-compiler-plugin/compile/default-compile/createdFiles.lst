@@ -1,0 +1,6 @@
+com\yun\ProvideApplication.class
+com\yun\service\impl\TestServiceImpl.class
+com\yun\api\TestServiceApi.class
+com\yun\controller\TestController.class
+com\yun\service\TestService.class
+com\yun\App.class

@@ -1,0 +1,21 @@
+server:
+  port: 8700
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@localhost:8501/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@localhost:8502/eureka/
+    #自身 不在向eureka注册
+    register-with-eureka: false
+    #启动时 禁用client的注册
+    fetch-registry: false
+#  instance:
+#    hostname: localhost
+
+spring:
+  application:
+    name: eureka-server
+  security:
+    user:
+      name: admin
+      password: admin

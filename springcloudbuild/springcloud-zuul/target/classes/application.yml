@@ -1,0 +1,33 @@
+server:
+  port: 8703
+
+#指定当前eureka客户端的注册地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:8502/eureka/
+  instance:
+    hostname: localhost
+
+spring:
+  application:
+    name: zuul-service
+  security:
+    user:
+      name: admin
+      password: admin
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: false
+
+zuul:
+  routes:
+    provide:
+      path: /provide/**
+      serviceId: eureka-provide
+      sensitiveHeaders: "*"
+    consumer:
+      path: /consumer/**
+      serviceId: eureka-consumer
+      sensitiveHeaders: "*"

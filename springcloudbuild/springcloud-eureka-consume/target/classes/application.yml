@@ -1,0 +1,22 @@
+server:
+  port: 8702
+
+#指定当前eureka客户端的注册地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:8501/eureka/
+  instance:
+    hostname: localhost
+
+spring:
+  application:
+    name: eureka-consumer
+  security:
+    user:
+      name: admin
+      password: admin
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: false
